@@ -92,5 +92,11 @@ else:
         addheader_tofile()
         addentry_tofile()
 
+# logout of session
+time.sleep(2)
+cookiedict = driver.get_cookie("cresid_nzz")
+cookiename = cookiedict.get("value")
+driver.get("https://login.nzz.ch/logout/?" + str(cookiename))
+
 # End script
 driver.close()
